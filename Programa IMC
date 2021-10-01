@@ -1,0 +1,54 @@
+Print("Bienvenido al programa..")
+
+#Interaccion del Usuario (P), Para que ingrese sus datos
+
+nombre = str (input ("Ingresar Nombre"))
+apellido = str (input ("Ingresar Apellido"))
+edad = int (input ("Ingrese Edad"))
+peso = float (input("Ingrese Peso"))
+altura = float (input ("Ingrese Altura"))
+direccion = str (input ("Ingrese Direccion"))
+telefono = int (input ("Ingrese Telefono (Sin Espacios) "))
+
+#Guardado, toda la informacion recopilada se guarda en el diccionario
+
+persona={"Nombre": nombre,"Apellido": apellido,"Edad": edad, "Peso":peso,"Altura":altura,"Direccion": direccion,"Telefono":telefono}
+
+imc = round (float (persona ["Peso"]) / (float (persona ["Altura"]) ** 2), 2)
+
+#Se define "cat_icm", y con el if el programa selecciona la imc indicadando su peso en base al IMC
+def cat_imc ():
+
+     if imc <18.5:                     
+        print( "Bajo Peso") 
+        
+     elif 18.5 < imc < 24.9:
+        print( "Peso Normal")
+        
+     elif 25.0 <imc <29.9:
+        print( "Sobre Peso")
+        
+     elif 30.0 <imc <34.9:
+        print( "Obesidad Tipo I")
+        
+     elif 35.0 <imc <39.9:
+        print( "Obesidad Tipo II")
+        
+     elif imc> 40:
+        print( "Obesidad Tipo III")
+
+
+#El programa muestra la IMC del usuario 
+
+print("imc:",imc)
+
+
+#Se define "imprimir"y se muestran todos los datos recopilados del usuario
+
+def imprimir():
+    print(persona)
+
+  
+  
+cat_imc ()
+imprimir()
