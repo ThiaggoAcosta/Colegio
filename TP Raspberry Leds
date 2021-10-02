@@ -1,0 +1,110 @@
+#Se importan las librerias
+import RPi.GPIO as io
+import time
+
+#Se enlaza el boton (button) al GPIO 10
+button = 10
+
+# Se enlazan los Leds (1, 2, 3, 4) al GPIO (5, 7, 11, 13)
+led1 = 5
+led2 = 7
+led3 = 11
+led4 = 13
+
+
+#Defino
+io.setmode(io.BCM)
+
+#Lo coloco para que no señale advertencias
+io.setwarnings(False)
+
+#Defino los pins como salidas
+io.setup(led1,io.OUT)
+io.setup(led2,io.OUT)
+io.setup(led3,io.OUT)
+io.setup(led4,io.OUT)
+
+#Defino el boton como entrada
+io.setup(button,io.IN)
+
+
+#Armo el while
+while io.input(button):
+
+#0 (0000)
+    io.output(led1,0)
+    io.output(led2,0)
+    io.output(led3,0)
+    io.output(led4,0)
+    time.sleep(1)
+
+#1 (0001)
+    io.output(led1,0)        
+    io.output(led2,0) 
+    io.output(led3,0)
+    io.output(led4,1)    
+    time.sleep(1)   
+
+#2 (0010)
+    io.output(led1,0)        
+    io.output(led2,0) 
+    io.output(led3,1)
+    io.output(led4,0)    
+    time.sleep(1)   
+
+#3 (0011)
+    io.output(led1,0)        
+    io.output(led2,0) 
+    io.output(led3,1)
+    io.output(led4,1)    
+    time.sleep(1)   
+
+
+#4 (0100)
+    io.output(led1,0)        
+    io.output(led2,1) 
+    io.output(led3,0)
+    io.output(led4,0)    
+    time.sleep(1)   
+
+
+#5 (0101)
+    io.output(led1,0)        
+    io.output(led2,1) 
+    io.output(led3,0)
+    io.output(led4,1)    
+    time.sleep(1)   
+
+
+#6 (0110)
+    io.output(led1,0)        
+    io.output(led2,1) 
+    io.output(led3,1)
+    io.output(led4,0)    
+    time.sleep(1)   
+
+
+#7 (0111)
+    io.output(led1,0)        
+    io.output(led2,1) 
+    io.output(led3,1)
+    io.output(led4,1)    
+    time.sleep(1)   
+
+
+#8 (1000)
+    io.output(led1,1)        
+    io.output(led2,0) 
+    io.output(led3,0)
+    io.output(led4,0)    
+    time.sleep(1)   
+
+
+#9 (1001)
+    io.output(led1,1)        
+    io.output(led2,0) 
+    io.output(led3,0)
+    io.output(led4,1)    
+    time.sleep(1)   
+
+io.cleanup()
